@@ -1,12 +1,7 @@
-//for simolicity we put model inside viewmodel
-var ViewModel = function(){
+var Cat = function(){
 	this.clickCount = ko.observable(0);
 	this.name = ko.observable("Tabby");
 	this.imgSrc = ko.observable("img/22252709_010df3379e_z.jpg");
-
-	this.incrementCounter = function(){
-		this.clickCount(this.clickCount() + 1);
-	};
 
 	this.level = ko.computed(function(){
 		if(this.clickCount() > 15){
@@ -21,6 +16,14 @@ var ViewModel = function(){
 	this.nickname=ko.observableArray([
 		{name:"Toto"},
 		{name:"Tictac"}]);
+}
+
+//for simolicity we put model inside viewmodel
+var ViewModel = function(){
+	this.currentCat = ko.observable(new Cat());
+	this.incrementCounter = function(){
+		this.currentCat().clickCount(this.currentCat().clickCount() + 1);
+	};
 }
 
 ko.applyBindings(new ViewModel());
