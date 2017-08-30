@@ -73,8 +73,8 @@ var ViewModel = function(){
 	// 	{name:"Toto"},
 	// 	{name:"Tictac"}]
 	// });
-	//this.currentCat = ko.observable(new Cat(this.catList()[0]));
-	this.currentCat = ko.observable(this.catList()[0]);
+	this.currentCat = ko.observable(new Cat(this.catList()[0]));
+	//this.currentCat = ko.observable(this.catList()[0]);
 	this.incrementCounter = function(){
 		// this.clickCount(this.clickCount() + 1);
 		console.log("Current clicks = " + self.currentCat().clickCount());
