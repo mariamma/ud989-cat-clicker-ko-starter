@@ -62,7 +62,7 @@ var ViewModel = function(){
 	var self=this;	//self points to this ViewModel
 	this.catList = ko.observableArray([]);
 	initialCats.forEach(function(catItem){
-		self.catList.push(catItem);
+		self.catList.push(new Cat(catItem));
 	});
 
 	// var cat1 = new Cat({
@@ -73,7 +73,7 @@ var ViewModel = function(){
 	// 	{name:"Toto"},
 	// 	{name:"Tictac"}]
 	// });
-	this.currentCat = ko.observable(new Cat(this.catList()[0]));
+	this.currentCat = ko.observable(this.catList()[0]);
 	//this.currentCat = ko.observable(this.catList()[0]);
 	this.incrementCounter = function(){
 		// this.clickCount(this.clickCount() + 1);
